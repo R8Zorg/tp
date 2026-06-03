@@ -1,0 +1,15 @@
+@{
+    ViewData["Title"] = "History";
+}
+
+<h2>Last operation</h2>
+
+<p>@ViewBag.Expression</p>
+
+
+@Html.ActionLink(
+        "Go back",
+        "Index",
+        "Calculator",
+        null,
+        new { @class = "btn btn-primary" })

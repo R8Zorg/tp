@@ -8,7 +8,7 @@ namespace TP.Models
         public ulong? FirstNumber { get; set; }
 
 
-        [Required(ErrorMessage = "Please, enter the 2st number")]
+        [Range(1,100_000, ErrorMessage = "Second number must be between 1 and 100_000")]
         public float? SecondNumber { get; set; }
 
 
