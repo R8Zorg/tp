@@ -5,21 +5,38 @@ namespace TP.Controllers
 {
     public class CalculatorController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
-        }
-
-        [HttpGet]
-        public IActionResult Calculate()
-        {
-            return View();
+            return View(new CalculatorViewModel());
         }
 
         [HttpPost]
-        public IActionResult Calculate(CalculatorViewModel calculator)
+        public IActionResult Index(CalculatorViewModel calculator)
         {
-            return View();
+            if (!ModelState.IsValid)
+                return View(calculator);
+
+            ArgumentNullException.ThrowIfNull(calculator.FirstNumber);
+            ArgumentNullException.ThrowIfNull(calculator.SecondNumber);
+
+            if (calculator.Sign == '/' && calculator.SecondNumber == 0)
+            {
+                ModelState.AddModelError(nameof(calculator.SecondNumber),
+                    "Division by zero is not allowed");
+
+                return View(calculator);
+            }
+
+            calculator.Result = calculator.Sign switch
+            {
+                '+' => (float)(calculator.FirstNumber + calculator.SecondNumber),
+                '-' => (float)(calculator.FirstNumber - calculator.SecondNumber),
+                '*' => (float)(calculator.FirstNumber * calculator.SecondNumber),
+                '/' => (float)(calculator.FirstNumber / calculator.SecondNumber),
+                _ => 0
+            };
+            return View(calculator);
         }
     }
 }
