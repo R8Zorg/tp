@@ -1,0 +1,17 @@
+@model lab_2.Models.OrderViewModel
+
+<h2>Order Details</h2>
+
+<div>
+    @Html.LabelForModel()
+</div>
+
+<div>
+    @Html.DisplayForModel()
+</div>
+
+<br>
+
+<a class="btn" asp-controller="Order" asp-action="Index">
+    Back
+</a>
