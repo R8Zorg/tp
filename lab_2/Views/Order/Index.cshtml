@@ -2,7 +2,7 @@
 
 <h2>Orders</h2>
 
-<p>
+<p class="create-container">
     <a class="btn" asp-controller="Order" asp-action="Create">
         Create New Order
     </a>
@@ -13,7 +13,11 @@
         <th>Id</th>
         <th>Event Type</th>
         <th>Date</th>
+        <th>Duration</th>
         <th>Price</th>
+        <th>Status</th>
+        <th>Children count</th>
+        <th>Customer email</th>
         <th>Actions</th>
     </tr>
 
@@ -23,7 +27,11 @@
             <td>@Model[i].Id</td>
             <td>@Model[i].EventType</td>
             <td>@Model[i].EventDate.ToShortDateString()</td>
+            <td>@Model[i].EventDuration.ToString()</td>
             <td>@Model[i].Price</td>
+            <td>@Model[i].Status</td>
+            <td>@Model[i].ChildrenCount</td>
+            <td>@Model[i].CustomerEmail</td>
             <td>
                 <a asp-controller="Order" asp-action="Details" asp-route-id="@Model[i].Id">
                     View
