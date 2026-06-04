@@ -2,7 +2,7 @@
 
 <h2>Edit Order</h2>
 
-<form asp-action="Edit" method="post">
+<form asp-action="Edit" method="post" class="edit-form">
 
     @Html.HiddenFor(m => m.Id)
 
@@ -41,9 +41,11 @@
         @Html.EditorFor(m => m.CustomerEmail)
     </div>
 
-    <button type="submit">Save</button>
+    <button type="submit" class="btn btn-success">
+        Save
+    </button>
 
-    <a class="btn" asp-controller="Order" asp-action="Index">
+    <a class="btn btn-primary" asp-controller="Order" asp-action="Index">
         Cancel
     </a>
 </form>

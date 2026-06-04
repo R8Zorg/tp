@@ -20,13 +20,11 @@ namespace lab_2.Controllers
             }
         };
 
-        // Просмотр всех заказов
         public IActionResult Index()
         {
             return View(orders);
         }
 
-        // Просмотр одного заказа
         public IActionResult Details(int id)
         {
             var order = orders.FirstOrDefault(x => x.Id == id);
@@ -37,14 +35,12 @@ namespace lab_2.Controllers
             return View(order);
         }
 
-        // Форма добавления
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
-        // Добавление
         [HttpPost]
         public IActionResult Create(OrderViewModel model)
         {
@@ -60,7 +56,6 @@ namespace lab_2.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // Форма редактирования
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -72,7 +67,6 @@ namespace lab_2.Controllers
             return View(order);
         }
 
-        // Редактирование
         [HttpPost]
         public IActionResult Edit(OrderViewModel model)
         {
