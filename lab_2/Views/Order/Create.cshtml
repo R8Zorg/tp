@@ -2,47 +2,53 @@
 
 <h2>Create Order</h2>
 
-<form asp-action="Create" method="post">
+<form asp-action="Create" method="post" class="form-card">
 
-    <div>
+    <div class="form-group">
         @Html.LabelFor(m => m.EventType)
         @Html.EditorFor(m => m.EventType)
     </div>
 
-    <div>
+    <div class="form-group">
         @Html.LabelFor(m => m.EventDate)
         @Html.EditorFor(m => m.EventDate)
     </div>
 
-    <div>
+    <div class="form-group">
         @Html.LabelFor(m => m.EventDuration)
         @Html.EditorFor(m => m.EventDuration)
     </div>
 
-    <div>
+    <div class="form-group">
         @Html.LabelFor(m => m.Price)
         @Html.EditorFor(m => m.Price)
     </div>
 
-    <div>
+    <div class="form-group">
         @Html.LabelFor(m => m.Status)
         @Html.EditorFor(m => m.Status)
     </div>
 
-    <div>
+    <div class="form-group">
         @Html.LabelFor(m => m.ChildrenCount)
         @Html.EditorFor(m => m.ChildrenCount)
     </div>
 
-    <div>
+    <div class="form-group">
         @Html.LabelFor(m => m.CustomerEmail)
         @Html.EditorFor(m => m.CustomerEmail)
     </div>
 
-    <button type="submit">Save</button>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-success">
+            Save
+        </button>
 
-    <a class="btn" asp-controller="Order" asp-action="Index">
-        Cancel
-    </a>
+        <a class="btn btn-primary"
+           asp-controller="Order"
+           asp-action="Index">
+            Cancel
+        </a>
+    </div>
+
 </form>
-
