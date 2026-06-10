@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Result";
+    HttpCookie cookie = Request.Cookies["LastOperation"];
+    string result = "There is no result";
+    int index = -1;
+    if (cookie != null && cookie["Result"] != null)
+    {
+        string expression = cookie["Result"];
+
+        if ((index = expression.IndexOf("+")) != -1)
+        {
+            result = expression.Remove(index, 1).Insert(index, "plus");
+        }
+        else if ((index = expression.IndexOf("-")) != -1)
+        {
+            result = expression.Remove(index, 1).Insert(index, "minus");
+        }
+        else if ((index = expression.IndexOf("*")) != -1)
+        {
+            result = expression.Remove(index, 1).Insert(index, "multiplied by");
+        }
+        else if ((index = expression.IndexOf("/")) != -1)
+        {
+            result = expression.Remove(index, 1).Insert(index, "divided by");
+        }
+    }
+
+
+}
+
+
+<div class="card">
+    <h1>Последняя операция</h1>
+    <h2>@result</h2>
+    @Html.ActionLink("Назад", "Index", "", new { @class = "btn btn-primary" })
+</div>
+
+
+
+

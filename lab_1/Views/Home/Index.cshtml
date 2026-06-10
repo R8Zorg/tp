@@ -1,8 +1,76 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model TP_WebApp.Models.CalculatorModel
+
+@{
+    ViewBag.Title = "Калькулятор";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CalculatorView</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/Site.css" />
+</head>
+<body>
+    <header>
+        <h1>Calculator</h1>
+    </header>
+
+    <div class="card">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(false, "", new {@class = "text-danger"}) // variant A
+        <div class="card-body">
+            @Html.LabelFor(c => c.FirstNumber, new { @class = "form-label" })
+            @Html.TextBoxFor(c => c.FirstNumber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.FirstNumber, "", new { @class = "text-danger" }) @*variant B*@
+
+            <label class="col-form-label">Sign</label>
+            @Html.DropDownList("Sign", new[]
+       {
+           new SelectListItem() { Text="+", Value="+"},
+           new SelectListItem() { Text="-", Value="-"},
+           new SelectListItem() { Text="*", Value="*"},
+           new SelectListItem() { Text="/", Value="/"},
+       })
+
+            @Html.LabelFor(c => c.SecondNumber, new { @class = "col-form-label" })
+            @Html.TextBoxFor(c => c.SecondNumber, new { @class = "form-control" })
+
+            <button type="submit"
+                    class="btn btn-success"
+                    value="calculate"
+                    name="buttonAction">
+                Calculate
+            </button>
+            <button type="submit"
+                    class="btn btn-secondary"
+                    value="clear"
+                    name="buttonAction"
+                    style="margin-top:0">
+                Clear all
+            </button>
+
+            <label class="form-label">Result</label>
+            <input readonly value="@Model.Result" class="form-control" />
+
+            @if (Model.Result == ViewBag.Number)
+            {
+                <p class="result-message">
+                    ✅ Result equals number 100.
+                </p>
+            }
+            else
+            {
+                <p class="result-message">
+                    ❌ Result doesn't equal number 100.
+                </p>
+            }
+        </div>
+        }
+        @Html.ActionLink("В другое представление", "Result", "", new { @class = "btn btn-primary" })
+    </div>
+</body>
+</html>
