@@ -1,0 +1,20 @@
+﻿<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<header>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light border-bottom mb-3">
+        <div class="container">
+            <div class="navbar-nav">
+
+                <p class="create-container">
+                    <a class="nav-link" asp-controller="Order" asp-action="Index">
+                        View all orders
+                    </a>
+                </p>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    @RenderBody()
+</div>
+

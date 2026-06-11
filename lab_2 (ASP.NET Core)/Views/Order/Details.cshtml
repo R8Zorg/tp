@@ -1,0 +1,67 @@
+@model lab_2.Models.OrderViewModel
+
+<h2>Order Details</h2>
+
+<div class="details-card">
+
+    <div class="detail-row">
+        <span class="detail-label">Order ID</span>
+        <span class="detail-value">@Model.Id</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Event Type</span>
+        <span class="detail-value">@Model.EventType</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Event Date</span>
+        <span class="detail-value">
+            @Model.EventDate.ToString("dd.MM.yyyy HH:mm")
+        </span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Duration</span>
+        <span class="detail-value">
+            @Model.EventDuration
+        </span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Price</span>
+        <span class="detail-value">
+            @Model.Price $
+        </span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Status</span>
+        <span class="detail-value">
+            @Model.Status
+        </span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Children Count</span>
+        <span class="detail-value">
+            @Model.ChildrenCount
+        </span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Customer Email</span>
+        <span class="detail-value">
+            @Model.CustomerEmail
+        </span>
+    </div>
+
+</div>
+
+<div class="details-actions">
+    <a class="btn btn-primary"
+       asp-controller="Order"
+       asp-action="Index">
+        Back
+    </a>
+</div>

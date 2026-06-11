@@ -1,0 +1,83 @@
+﻿body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-btn {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    margin: 0 2px;
+}
+
+.view-btn {
+    background-color: #0d6efd;
+}
+
+    .view-btn:hover {
+        background-color: #0b5ed7;
+    }
+
+.edit-btn {
+    background-color: #198754;
+}
+
+    .edit-btn:hover {
+        background-color: #157347;
+    }
+
+.table {
+    text-align: center;
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px #0d6efd;
+}
+
+.edit-form {
+    width: fit-content;
+    margin: 0 auto;
+    box-shadow: 0 0 10px #79f131;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-line {
+    display: flex;
+    align-items: center;
+    margin: 15px;
+}
+
+    .edit-line label {
+        width: 150px;
+        text-align: center;
+    }

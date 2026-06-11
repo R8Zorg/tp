@@ -1,0 +1,25 @@
+﻿@model TP_WebApp2.Models.OrderViewModel
+@{
+    ViewBag.Title = "Details";
+}
+@*
+    LabelForModel и DisplayForModel
+*@
+
+<header>
+    <h1>Order details</h1>
+</header>
+
+<body>
+    <hr />
+    <h2 class="center-content">@Html.LabelForModel(new { @class = "form-header" })</h2>
+    <div style="display:flex; justify-content:center">
+        @Html.ActionLink("Go back", "Index", "", new { @class = "btn btn-primary", @style="margin: 10px" })
+    </div>
+    <div class="card">
+        @Html.DisplayForModel()
+    </div>
+</body>
+
+
+

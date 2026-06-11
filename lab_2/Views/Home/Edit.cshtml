@@ -1,0 +1,59 @@
+﻿@model TP_WebApp2.Models.OrderViewModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<header>
+    <h1>Edit order</h1>
+</header>
+
+<body>
+    <div class="edit-form">
+        @using (Html.BeginForm())
+        {
+            <div class="edit-line">
+                @Html.LabelFor(x => x.EventType)
+                @Html.EditorFor(x => x.EventType)
+            </div>
+
+            <div class="edit-line">
+                @Html.LabelFor(x => x.EventDate)
+                @Html.EditorFor(x => x.EventDate)
+            </div>
+
+            <div class="edit-line">
+                @Html.LabelFor(x => x.EventDuration)
+                @Html.EditorFor(x => x.EventDuration)
+            </div>
+
+            <div class="edit-line">
+                @Html.LabelFor(x => x.Price)
+                @Html.EditorFor(x => x.Price)
+            </div>
+
+            <div class="edit-line">
+                @Html.LabelFor(x => x.Status)
+                @Html.EditorFor(x => x.Status)
+            </div>
+
+            <div class="edit-line">
+                @Html.LabelFor(x => x.ChildrenCount)
+                @Html.EditorFor(x => x.ChildrenCount)
+            </div>
+
+            <div class="edit-line">
+                @Html.LabelFor(x => x.CustomerEmail)
+                @Html.EditorFor(x => x.CustomerEmail)
+            </div>
+
+            <div class="center-content">
+                <button class="btn btn-success"
+                        style="margin:10px"
+                        type="submit">
+                    Save
+                </button>
+                @Html.ActionLink("Back", "Index", "", new { @class = "btn btn-secondary" })
+            </div>
+        }
+    </div>
+</body>

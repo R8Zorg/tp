@@ -1,0 +1,70 @@
+﻿@model List<TP_WebApp2.Models.OrderViewModel>
+@using TP_WebApp2.Infrastructure
+
+@{
+    ViewBag.Title = "View all";
+}
+@helper ListOrderItems(List<TP_WebApp2.Models.OrderViewModel> models)
+{
+    for (int i = 0; i < models.Count(); i++)
+    {
+        <tr>
+            <td>@Model[i].Id</td>
+            <td>@Model[i].EventType</td>
+            <td>@Model[i].EventDate</td>
+            <td>@Model[i].EventDuration</td>
+            <td>@Model[i].Price</td>
+            <td>@Model[i].Status</td>
+            <td>@Model[i].ChildrenCount</td>
+            <td>@Model[i].CustomerEmail</td>
+            <td>
+                @Html.ActionLink("View", "Details", new { id = @Model[i].Id }, new { @class = "btn btn-primary" })
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = @Model[i].Id }, new { @class = "btn btn-success" })
+            </td>
+            <td>
+                <button class="btn btn-danger"
+                        name="btnDelete"
+                        value="@Model[i].Id"
+                        type="submit">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    }
+}
+<header>
+    <h1>View all orders</h1>
+</header>
+
+<body>
+    <div style="display:flex; justify-content:center">
+        @Html.ActionLink("Add new", "Add", "", new { @class = "btn btn-primary" })
+    </div>
+    @using (Html.BeginForm())
+    {
+        <table class="table align-middle">
+            <tr>
+                <th>Id</th>
+                <th>Event type</th>
+                <th>Event date</th>
+                <th>Event duration</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th>Children count</th>
+                <th>Customer email</th>
+            </tr>
+            @if ((bool)ViewData["UseInnerMethod"])
+            {
+                @ListOrderItems(Model)
+            }
+            else
+            {
+                @Html.PrintOrders(Model)
+            }
+        </table>
+    }
+
+</body>
+
